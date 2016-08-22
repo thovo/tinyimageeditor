@@ -1,0 +1,27 @@
+{
+  "name": "tinyimageeditor",
+  "version": "1.0.0",
+  "description": "Contest 10kb website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thovo/tinyimageeditor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thovo/tinyimageeditor/issues"
+  },
+  "homepage": "https://github.com/thovo/tinyimageeditor#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "pug": "^0.1.0"
+  }
+}
