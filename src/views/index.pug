@@ -1,7 +1,9 @@
 doctype html
 html(lang="en")
-  head
-    script(type='text/javascript', src='bundle.js')
-    link(type='text/css', href='main.css', rel='stylesheet')
-  body
-    button(onclick='filter1()') Filter1
+    head
+        script(type='text/javascript', src='bundle.js')
+        link(type='text/css', href='main.css', rel='stylesheet')
+    body(onload='onLoad()')
+        input(type='file', id='fileUpload', name='upload')
+        canvas(id='canvas', width='900', height='563', style='background-color:#fff')
+        button(onclick='filter1()') Filter1
