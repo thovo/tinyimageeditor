@@ -42,20 +42,16 @@ gulp.task('views', function() {
 
 gulp.task('build', function() {
     return gulp.src(['./src/scripts/**/*.js'])
-        .pipe(sourcemaps.init())
         .pipe(concat('bundle.js'))
         .pipe(uglify())
-        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist'));
 });
 
 gulp.task('sass', function() {
     return gulp.src('./src/style/main.scss')
-        .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: 'compressed'
         }))
-        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist'));
 });
 
