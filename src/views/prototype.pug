@@ -1,14 +1,15 @@
 doctype html
 html(lang="en")
   head
-    script(type='text/javascript', src='bundle.js')
     link(type='text/css', href='main.css', rel='stylesheet')
   body
     header
       h1 Tiny Image Editor
     section.main
-      canvas.main-frame(width="200", height="200", style="border:1px solid #000000")
-      button.btn.btn-warning Upload
+      canvas#main-frame.main-frame(width="200", height="200")
+      button#btn-upload Upload
+      input#input-upload.input-upload(type='file')
+      button#btn-download Download
       section.filters
         ul.list
           li.filter
@@ -19,3 +20,4 @@ html(lang="en")
             h3 Filter 3
     footer
       a(href='/about-us', target='_blank') About us
+    script(type='text/javascript', src='bundle.js')

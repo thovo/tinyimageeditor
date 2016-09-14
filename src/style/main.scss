@@ -30,6 +30,9 @@ header {
   canvas {
     align-self: flex-start;
     order: 1;
+  }
+
+  .input-upload {
     visibility: hidden;
   }
 
