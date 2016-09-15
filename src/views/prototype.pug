@@ -6,18 +6,20 @@ html(lang="en")
     header
       h1 Tiny Image Editor
     section.main
-      canvas#main-frame.main-frame(width="200", height="200")
-      button#btn-upload Upload
-      input#input-upload.input-upload(type='file')
-      button#btn-download Download
+      canvas#main-frame.main-frame(width="400", height="400")
+      section.handlers
+        button#btn-upload Upload
+        input#input-upload.input-upload(type='file')
+        button#btn-download Download
+        button#btn-undo Undo
       section.filters
         ul.list
-          li.filter
-            h3 Filter 1
-          li.filter
-            h3 Filter 2
-          li.filter
-            h3 Filter 3
+          li
+            button#grayscale.filter Grayscale
+          li
+            button#sepia.filter Sepia
+          li
+            button#brightness.filter Brightness
     footer
       a(href='/about-us', target='_blank') About us
     script(type='text/javascript', src='bundle.js')
