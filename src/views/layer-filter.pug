@@ -6,4 +6,6 @@ html(lang="en")
     body(onload='onLoad()')
         input(type='file', id='fileUpload', name='upload')
         canvas(id='canvas', width='900', height='563', style='background-color:#fff')
-        button(onclick='filterLayer1()') apply layer filter
+        button(onclick='filterLayer("rainbowFilter")') rainbow effect
+        button(onclick='filterPattern("rainy")') rainy pattern
+        button(onclick='filterPattern("forest")') forest pattern
