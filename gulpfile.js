@@ -29,7 +29,6 @@ gulp.task('projectSize', ['build-product', 'sass-product', 'views-product'], fun
                 if (s.size > 10000) {
                     return `Total size ${s.prettySize}`;
                 }
-                return;
             }
         }));
 });
