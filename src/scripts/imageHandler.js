@@ -7,7 +7,7 @@
   var undoButton = document.getElementById('btn-undo');
   var inputUpload = document.getElementById('input-upload');
   var filterButtons = document.getElementsByClassName('filter');
-  var undoData = {};
+  var undoData = [];
 
   function addEventsListener() {
     uploadButton.addEventListener('click', toggleOpenFileDialog, false);
@@ -24,7 +24,7 @@
     var imageData = {};
     if (canvas.width > 0 && canvas.height > 0) {
       imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-      undoData = context.getImageData(0, 0, canvas.width, canvas.height);
+      undoData.push(context.getImageData(0, 0, canvas.width, canvas.height));
     }
     switch (filter) {
       case 'grayscale':
@@ -79,7 +79,8 @@
   }
 
   function undoChange() {
-    updateCanvas(undoData);
+    if(undoData.length > 0)
+      updateCanvas(undoData.pop());
   }
 
   function updateCanvas(imageData) {
