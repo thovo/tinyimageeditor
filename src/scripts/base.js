@@ -21,6 +21,11 @@ function readImage() {
         var FR = new FileReader();
         FR.onload = function(e) {
             img.onload = function() {
+
+                //wrap canvas by image to that we can apply filter as we want to
+                canvas.height = img.height;
+                canvas.width = img.width;
+
                 context.drawImage(img, 0, 0);
             };
             img.src = e.target.result;

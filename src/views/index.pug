@@ -1,13 +1,39 @@
 doctype html
 html(lang="en")
-    head
-        script(type='text/javascript', src='bundle.js')
-        link(type='text/css', href='main.css', rel='stylesheet')
-    body(onload='onLoad()')
-        input(type='file', id='fileUpload', name='upload')
-        canvas(id='canvas', width='900', height='563', style='background-color:#fff')
-        button(onclick='grayscale()') Grayscale
-        button(onclick='filter2()') filter2
-        button(onclick='filter3()') filter3
-        button(onclick='filter4()') filter4
-        button(onclick='filter5()') filter5
+  head
+    link(type='text/css', href='main.css', rel='stylesheet')
+  body
+    header
+      h1 Tiny Image Editor
+    section.main
+      canvas#main-frame.main-frame(width="400", height="400")
+      section.handlers
+        button#btn-upload Upload
+        input#input-upload.input-upload(type='file')
+        button#btn-download Download
+        button#btn-undo Undo
+      section.icons
+        ul#list-icons
+      section.filters
+        ul.list
+          li
+            button#grayscale.filter Grayscale
+          li
+            button#sepia.filter Sepia
+          li
+            button#brightness.filter Brightness
+          li
+            button#invert.filter Invert
+          li
+            button#opacity.filter Opacity
+          li
+            button#threshold.filter Threshold
+          li
+            button#rainbow(onclick='filterLayer("rainbowFilter")') Rainbow
+          li
+            button#rainy(onclick='filterPattern("rainy")') Rainy
+          li
+            button#forest(onclick='filterPattern("forest")') Forest
+    footer
+      a(href='/about-us', target='_blank') About us
+    script(type='text/javascript', src='bundle.js')
