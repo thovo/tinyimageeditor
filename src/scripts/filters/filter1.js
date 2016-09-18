@@ -1,14 +1,17 @@
 'use strict';
 
-function filter1() {
-    var pixels = createImageData();
+function grayscale() {
+    var pixels = getImageData();
 
-    var output = filterImage(convolute, pixels, [0, -1, 0, -1, 5, -1,
-        0, -1, 0
-    ]);
+    var d = pixels.data;
+    for (var i = 0; i < d.length; i += 4) {
+        var r = d[i];
+        var g = d[i + 1];
+        var b = d[i + 2];
+        d[i] = d[i + 1] = d[i + 2] = (r + g + b) / 3;
+    }
 
     var canvas = document.getElementById("canvas");
     var context = canvas.getContext('2d');
-    context.putImageData(output, 0, 0);
-
+    context.putImageData(pixels, 0, 0);
 };

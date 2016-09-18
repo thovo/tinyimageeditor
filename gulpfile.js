@@ -10,7 +10,7 @@ var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 var size = require('gulp-size');
 
-gulp.task('default', ['build', 'sass', 'views', 'connect', 'projectSize'], function() {
+gulp.task('default', ['build', 'sass', 'views', 'connect'], function() {
     gulp.watch(['./src/scripts/**/*.js',
         './src/style/**/*.scss',
         './src/views/**/*.pug'
