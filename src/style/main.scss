@@ -94,6 +94,16 @@ header {
   }
 }
 
+.hide{
+  visibility: hidden;
+  display: none;
+}
+
+.show{
+  visibility: visible;
+  display: inherit;
+}
+
 footer {
   bottom: 0;
   padding-bottom: 10px;

@@ -1,8 +1,30 @@
 'use strict';
 
-// define pattern source by keyword
-//...
+//--listen to an url link
+//when text change: if text has value, enable the button apply
+var url_input = document.getElementById('cp-url');
+url_input.addEventListener("input", function (e) {
+    var cl = document.getElementById('cp-url-app').classList;
+    var url = e.target.value;
+    if (url.length != '') {
+        show(cl);
+        document.getElementById('cp-url-app').addEventListener('click',function()   {
+            filterPattern('', url);
+        })
+    } else {
+        hide(cl);
+    }
+});
 
+function showOptionCp() {
+    var cp_input_id = ["cp-url","cp-img"];
+    cp_input_id.forEach(function(input)    {
+        var cl = document.getElementById(input).classList;
+        show(cl);
+    });
+}
+
+// --- the filters
 /**
  * Apply layer in front of the main image
  * @param {string} filterMode: equal to callback function's name that defined in children sections
@@ -33,20 +55,19 @@ function filterPattern(patternMode, patternSource) {
     var context = canvas.getContext("2d");
     context.globalCompositeOperation = "multiple";
 
-
     //load my image source
     var image = new Image();
     image.src = canvas.toDataURL();
 
     var patternSrc = {
-        'rainy' : 'https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png',
-        'forest' : 'http://10steps.sg/wp-content/uploads//2012/04/fantasy-photoshop-tutorial-12.jpg'
+        'rainy': 'https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png',
+        'forest': 'http://10steps.sg/wp-content/uploads//2012/04/fantasy-photoshop-tutorial-12.jpg'
     };
 
     //draw pattern first
     var pattern = new Image();
     pattern.src = (patternMode == '') ? patternSource : patternSrc[patternMode];
-    pattern.onload = function() {
+    pattern.onload = function () {
         context.drawImage(pattern, 0, 0, canvas.width, canvas.height);
     };
     context.globalCompositeOperation = "lighter";
@@ -55,7 +76,7 @@ function filterPattern(patternMode, patternSource) {
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
-        //***** children section *****//
+//***** children section *****//
 
 // filter
 /**
@@ -63,7 +84,7 @@ function filterPattern(patternMode, patternSource) {
  * @param {CanvasRenderingContext2D} context
  * @param {Object} canvas
  */
-function rainbowFilter(context, canvas)    {
+function rainbowFilter(context, canvas) {
 
     //I paint my context by rainbow
     var gradient = context.createLinearGradient(0, canvas.height, canvas.width, canvas.height);
@@ -74,4 +95,18 @@ function rainbowFilter(context, canvas)    {
 
     context.fillStyle = gradient;
     context.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function show(classList) {
+    if(classList.contains('hide'))  {
+        classList.add('show');
+        classList.remove('hide');
+    }
+}
+
+function hide(classList) {
+    if(classList.contains('show'))  {
+        classList.add('hide');
+        classList.remove('show');
+    }
 }

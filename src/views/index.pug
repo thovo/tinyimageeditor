@@ -1,39 +1,49 @@
 doctype html
 html(lang="en")
-  head
-    link(type='text/css', href='main.css', rel='stylesheet')
-  body
-    header
-      h1 Tiny Image Editor
-    section.main
-      canvas#main-frame.main-frame(width="400", height="400")
-      section.handlers
-        button#btn-upload Upload
-        input#input-upload.input-upload(type='file')
-        button#btn-download Download
-        button#btn-undo Undo
-      section.icons
-        ul#list-icons
-      section.filters
-        ul.list
-          li
-            button#grayscale.filter Grayscale
-          li
-            button#sepia.filter Sepia
-          li
-            button#brightness.filter Brightness
-          li
-            button#invert.filter Invert
-          li
-            button#opacity.filter Opacity
-          li
-            button#threshold.filter Threshold
-          li
-            button#rainbow(onclick='filterLayer("rainbowFilter")') Rainbow
-          li
-            button#rainy(onclick='filterPattern("rainy")') Rainy
-          li
-            button#forest(onclick='filterPattern("forest")') Forest
-    footer
-      a(href='/about-us', target='_blank') About us
-    script(type='text/javascript', src='bundle.js')
+    head
+        link(type='text/css', href='main.css', rel='stylesheet')
+    body
+        header
+            h1 Tiny Image Editor
+        section.main
+            canvas#main-frame.main-frame(width="400", height="400")
+            section.handlers
+                button#btn-upload Upload
+                input#input-upload.input-upload(type='file')
+                button#btn-download Download
+                button#btn-undo Undo
+            section.icons
+                ul#list-icons
+            section.filters
+                ul.list
+                    li
+                        button#grayscale.filter Grayscale
+                    li
+                        button#sepia.filter Sepia
+                    li
+                        button#brightness.filter Brightness
+                    li
+                        button#invert.filter Invert
+                    li
+                        button#opacity.filter Opacity
+                    li
+                        button#threshold.filter Threshold
+                ul.list
+                    li
+                        button#rainbow(onclick='filterLayer("rainbowFilter")') Rainbow
+                    li
+                        button#rainy(onclick='filterPattern("rainy")') Rainy
+                    li
+                        button#forest(onclick='filterPattern("forest")') Forest
+                    li
+                        button#custom-pattern(onclick='showOptionCp()') Use your own pattern
+                    //- cp == custom pattern
+                    li
+                        input#cp-url.hide(type="text",placeholder="Please include https in your link")
+                        button#cp-url-app.hide Apply your pattern
+                        p.hide or
+                        input#cp-img.hide(type="file")
+                        button#cp-img-app.hide Apply your pattern
+        footer
+            a(href='/about-us', target='_blank') About us
+        script(type='text/javascript', src='bundle.js')

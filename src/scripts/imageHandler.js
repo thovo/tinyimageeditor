@@ -91,11 +91,16 @@
         updateCanvas(imageData);
     }
 
-    function opacity(imageData) {
+    /**
+     *
+     * @param imageData
+     * @param {boolean} up
+     */
+    function opacity(imageData, up) {
         var d = imageData.data;
         var len = d.length;
         for (var i = 0; i < len; i += 4) {
-            d[i + 3] = d[i + 3] * 0.5;
+            d[i + 3] = d[i + 3] * (up? 0.8 : 1.25);
         }
         updateCanvas(imageData);
     }
